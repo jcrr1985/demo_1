@@ -1,115 +1,109 @@
 <!doctype html>
 <html>
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.4/css/tether.min.css" />
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no,
+			initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.4/css/tether.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
 
-<title>World Map 1</title>
-	<style>
-	
+    <title>World Map 1</title>
+    <style>
 
-	</style>
-		<!-- Resources -->
-	<script src="https://www.amcharts.com/lib/3/ammap.js"></script>
-	<script src="https://www.amcharts.com/lib/3/maps/js/worldLow.js"></script>
-	<link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
-	<script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script>
-	<link rel="stylesheet" href="main.css">
-	<!--FontAwesome-->
-	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-	
+    </style>
+    <!-- Resources -->
+    <script src="https://www.amcharts.com/lib/3/ammap.js"></script>
+    <script src="https://www.amcharts.com/lib/3/maps/js/worldLow.js"></script>
+    <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+    <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script>
+    <link rel="stylesheet" href="main.css">
+    <!--FontAwesome-->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <!--Animate.css-->
+    <link rel="stylesheet" type="" href="./animate.css">
+
 </head>
 
 <body>
 
-<!-- HTML -->
-	
-<div class="container-fluid">
-	<div class="row">
-			<div class="col-sm-6 col-md-12 d-flex justify-content-between">
-				<div class="topStats">
-					<h1>STATS</h1>
-				</div>
-				<a href="#" class="closePage">
-					<i class="fa fa-window-close" aria-hidden="true"></i></i><span class="times"> CLOSE</span>
-				</a>	
-			</div>
-			
-			<div class="topStats">
-			
-			</div>
-			<div class="col-sm-6 col-md-12 statsAndBars">				
-				<div id="vertBarChart">
-				</div>
-			</div>
-	</div>
-</div>
-	
-<div class="container-fluid containerMargins">
-	<div class="row">
-		<div class="col-md-4"></div>
-		<div class="col-md-4">
-			<ul class="social-network social-circle">
-				<li><a href="#" class="icoRss" title="Rss"><i class="fa fa-rss"></i></a></li>
-				<li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-				<li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-				<li><a href="#" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
-				<li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
-			</ul>				
-		</div>
-		<div class="col-md-4"></div>
+    <!-- HTML -->
 
-	</div>
-</div>
-	
-<div class="container-fluid">
-	<div class="row">
-		<div id="chartdiv"></div>
-	</div>
-</div>
+    <div class="upper-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 topStats">
 
-	
-<div class="container-fluid donutsSection">
-	<div class="row">
-		<div id="bardiv" class="col-md-6 bardiv"></div>
-		<div id="bardiv2" class="col-md-6 bardiv"></div>
-	</div>
-	
-	<div class="row" style="">
-		<div id="pie1" class="col-md text-center"></div>
-		<div id="pie2" class="col-md text-center"></div>
-		<div id="pie3" class="col-md text-center"></div>
-	</div>
-	
-	
-	</div>
+                    <h1>STATS</h1>
 
-	
+                    <a href="#" class="closePage">
+                        <i class="fa fa-window-close" aria-hidden="true"></i><span class="times">
+								CLOSE</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid containerMargins">
+            <div class="row social-row">
+
+                <div class="col-md-4">
+                    <ul class="social-network social-circle">
+                        <li><a href="#" class="icoRss" title="Rss"><i class="fa fa-rss"></i></a></li>
+                        <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa
+										fa-facebook"></i></a></li>
+                        <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa
+										fa-twitter"></i></a></li>
+                        <li><a href="#" class="icoGoogle" title="Google +"><i class="fa
+										fa-google-plus"></i></a></li>
+                        <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa
+										fa-linkedin"></i></a></li>
+                    </ul>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div id="chartdiv"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container-fluid">
+        <div class="row barSection">
+            <div id="bardiv" class="col-md-6 bardiv"></div>
+            <div id="bardiv2" class="col-md-6 bardiv"></div>
+        </div>
+
+        <div class="row donutsSection">
+            <div id="pie1" class="col-md-4 text-center"></div>
+            <div id="pie2" class="col-md-4 text-center"></div>
+            <div id="pie3" class="col-md-4 text-center"></div>
+        </div>
+    </div>
 
 
 
-<!-- Chart code -->
-<script>
-	
 
-</script>
-	
-<script
-src="https://code.jquery.com/jquery-3.3.1.min.js"
-integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.4/js/tether.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js" integrity="sha256-jDnOKIOq2KNsQZTcBTEnsp76FnfMEttF6AV2DF2fFNE=" crossorigin="anonymous"></script>
-	<!--main.js-->
-	<script src="main.js"></script>
+    <!-- Chart code -->
+    <script>
+    </script>
 
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.4/js/tether.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js" integrity="sha256-jDnOKIOq2KNsQZTcBTEnsp76FnfMEttF6AV2DF2fFNE=" crossorigin="anonymous"></script>
+    <!--main.js-->
+    <script src="./main.js"></script>
 
 </body>
+
 </html>
